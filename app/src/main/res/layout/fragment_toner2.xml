@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@+id/linearLayout13"
+        android:layout_below="@+id/linearLayout12"
+        android:layout_centerHorizontal="true"
+        android:background="@color/colorPrimary"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/textView18"
+            android:layout_width="match_parent"
+            android:layout_height="30dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:layout_marginTop="10dp"
+            android:gravity="bottom"
+            android:text="토너먼트"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/To2_SelectToner"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:layout_marginBottom="10dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/quadline"
+            android:gravity="center_vertical"
+            android:paddingLeft="10dp"
+            android:text="종류를 선택해주세요." />
+
+        <TextView
+            android:id="@+id/textView16"
+            android:layout_width="match_parent"
+            android:layout_height="30dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:layout_marginTop="10dp"
+            android:gravity="bottom"
+            android:text="최종 우승 금액"
+            android:textStyle="bold" />
+
+        <EditText
+            android:id="@+id/To2_Win1Prize"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:layout_marginBottom="10dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/quadline"
+            android:ems="10"
+            android:inputType="number"
+            android:paddingLeft="10dp" />
+
+        <TextView
+            android:id="@+id/textView19"
+            android:layout_width="match_parent"
+            android:layout_height="30dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:layout_marginTop="10dp"
+            android:gravity="bottom"
+            android:text="준 우승 금액"
+            android:textStyle="bold" />
+
+        <EditText
+            android:id="@+id/To2_Win2Prize"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:layout_marginBottom="10dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/quadline"
+            android:ems="10"
+            android:inputType="number"
+            android:paddingLeft="10dp" />
+
+        <TextView
+            android:id="@+id/textView21"
+            android:layout_width="match_parent"
+            android:layout_height="30dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:layout_marginTop="10dp"
+            android:gravity="bottom"
+            android:text="참가비"
+            android:textStyle="bold" />
+
+        <EditText
+            android:id="@+id/To2_JoinPrice"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:layout_marginBottom="10dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/quadline"
+            android:ems="10"
+            android:inputType="number"
+            android:paddingLeft="10dp" />
+
+        <TextView
+            android:id="@+id/To2_OKButton"
+            android:layout_width="80dp"
+            android:layout_height="40dp"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginBottom="20dp"
+            android:layout_marginTop="10dp"
+            android:background="@android:color/darker_gray"
+            android:gravity="center"
+            android:text="등록"
+            android:textColor="#ffffff"
+            android:textSize="15sp"
+            android:textStyle="bold" />
+    </LinearLayout>
+
+</ScrollView>

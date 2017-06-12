@@ -1,0 +1,14 @@
+[
+    {
+        "merged": "D:\\Android\\prototype_socialapp2\\prototype_socialapp2\\library\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable\\button_previous_month_selector.xml",
+        "source": "D:\\Android\\prototype_socialapp2\\prototype_socialapp2\\library\\build\\intermediates\\bundles\\debug\\res\\drawable\\button_previous_month_selector.xml"
+    },
+    {
+        "merged": "D:\\Android\\prototype_socialapp2\\prototype_socialapp2\\library\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable\\button_next_month_selector.xml",
+        "source": "D:\\Android\\prototype_socialapp2\\prototype_socialapp2\\library\\build\\intermediates\\bundles\\debug\\res\\drawable\\button_next_month_selector.xml"
+    },
+    {
+        "merged": "D:\\Android\\prototype_socialapp2\\prototype_socialapp2\\library\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable\\selected_date_shape.xml",
+        "source": "D:\\Android\\prototype_socialapp2\\prototype_socialapp2\\library\\build\\intermediates\\bundles\\debug\\res\\drawable\\selected_date_shape.xml"
+    }
+]

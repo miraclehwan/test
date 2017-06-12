@@ -1,0 +1,315 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    >
+    <!--xmlns:cv="http://schemas.android.com/tools"-->
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="@color/colorPrimary"
+        android:orientation="horizontal"
+        android:id="@+id/linearLayout2">
+
+        <TextView
+            android:id="@+id/textView13"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:layout_alignParentBottom="true"
+
+            android:layout_weight="1"
+            android:background="@color/colorPrimary"
+            android:gravity="center"
+            android:text="구장정보"
+            android:textColor="#ffffff"
+            android:textSize="20sp" />
+    </RelativeLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:orientation="horizontal"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentStart="true"
+        android:id="@+id/linearLayout4"></LinearLayout>
+
+    <TextView
+        android:id="@+id/LocalDate"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/linearLayout2"
+        android:layout_margin="5dp"
+        android:text="경기도 수원시 현재 날씨 (17.05.24)" />
+
+    <LinearLayout
+        android:id="@+id/linearLayout3"
+        android:layout_width="match_parent"
+        android:layout_height="80dp"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/LocalDate"
+        android:background="?attr/colorControlHighlight"
+        android:orientation="horizontal">
+
+        <LinearLayout
+            android:id="@+id/Main1_BgColor1"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/WeatherTime1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:text="03시" />
+
+            <ImageView
+                android:id="@+id/WeatherImage1"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_gravity="center"
+                android:layout_margin="5dp"
+                app:srcCompat="@drawable/rain" />
+
+            <TextView
+                android:id="@+id/WeatherKelvin1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:text="17도" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/Main1_BgColor2"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/WeatherTime2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:text="03시" />
+
+            <ImageView
+                android:id="@+id/WeatherImage2"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_gravity="center"
+                android:layout_margin="5dp"
+                app:srcCompat="@drawable/cloudy" />
+
+            <TextView
+                android:id="@+id/WeatherKelvin2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:text="17도" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/Main1_BgColor3"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/WeatherTime3"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:text="03시" />
+
+            <ImageView
+                android:id="@+id/WeatherImage3"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_gravity="center"
+                android:layout_margin="5dp"
+                app:srcCompat="@drawable/cloudy" />
+
+            <TextView
+                android:id="@+id/WeatherKelvin3"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:text="17도" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/Main1_BgColor4"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/WeatherTime4"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:text="03시" />
+
+            <ImageView
+                android:id="@+id/WeatherImage4"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_gravity="center"
+                android:layout_margin="5dp"
+                app:srcCompat="@drawable/suncloud" />
+
+            <TextView
+                android:id="@+id/WeatherKelvin4"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:text="17도" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/Main1_BgColor5"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/WeatherTime5"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:text="03시" />
+
+            <ImageView
+                android:id="@+id/WeatherImage5"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_gravity="center"
+                android:layout_margin="5dp"
+                app:srcCompat="@drawable/suncloud" />
+
+            <TextView
+                android:id="@+id/WeatherKelvin5"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:text="17도" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/Main1_BgColor6"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/WeatherTime6"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:text="03시" />
+
+            <ImageView
+                android:id="@+id/WeatherImage6"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_gravity="center"
+                android:layout_margin="5dp"
+                app:srcCompat="@drawable/suncloud" />
+
+            <TextView
+                android:id="@+id/WeatherKelvin6"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:text="17도" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/Main1_BgColor7"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/WeatherTime7"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:text="03시" />
+
+            <ImageView
+                android:id="@+id/WeatherImage7"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_gravity="center"
+                android:layout_margin="5dp"
+                app:srcCompat="@drawable/sun" />
+
+            <TextView
+                android:id="@+id/WeatherKelvin7"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:text="17도" />
+        </LinearLayout>
+    </LinearLayout>
+
+    <FrameLayout
+        android:id="@+id/Main1_Fragement"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@+id/linearLayout4"
+        android:layout_below="@+id/linearLayout3"
+        android:layout_centerHorizontal="true">
+
+    </FrameLayout>
+
+    <!--<TextView-->
+        <!--android:id="@+id/Main1_Edit"-->
+        <!--android:layout_width="wrap_content"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:layout_alignBottom="@+id/linearLayout2"-->
+        <!--android:layout_alignParentEnd="true"-->
+        <!--android:layout_alignParentTop="true"-->
+        <!--android:gravity="center"-->
+        <!--android:text="정보수정"-->
+        <!--android:textColor="#ffffff" />-->
+
+</RelativeLayout>
