@@ -72,7 +72,8 @@ public class CommentAdapter extends BaseAdapter {
         }
 
         Glide.with(convertView.getContext()).load("http://miraclehwan.vps.phps.kr/SS/pic/" + datas.get(position).getImageurl()).into(Image);
-        User.setText(datas.get(position).getUser());
+        int idx = datas.get(position).getUser().indexOf("@");
+        User.setText(datas.get(position).getUser().substring(0, idx));
         Comment.setText(datas.get(position).getComment());
         Date.setText(
                 datas.get(position).getDate().substring(0,4) +"." +

@@ -96,7 +96,8 @@ public class BoardContent extends AppCompatActivity {
 
         Title.setText(intent.getStringExtra("title"));
         Glide.with(this).load("http://miraclehwan.vps.phps.kr/SS/pic/" + intent.getStringExtra("imageurl")).into(Image);
-        User.setText(intent.getStringExtra("user"));
+        int idx = intent.getStringExtra("user").indexOf("@");
+        User.setText(intent.getStringExtra("user").substring(0,idx));
         Date.setText(
                 intent.getStringExtra("date").substring(0,4) +"." +
                         intent.getStringExtra("date").substring(4,6) + "."+

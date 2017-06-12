@@ -69,8 +69,9 @@ public class BoardAdapter extends BaseAdapter {
         Reply.setText(datas.get(position).getReply());
 
         Glide.with(convertView.getContext()).load("http://miraclehwan.vps.phps.kr/SS/pic/" + datas.get(position).getImageurl()).into(Image);
+        int idx = datas.get(position).getUser().indexOf("@");
 
-        Date.setText(datas.get(position).getUser() + " | " +
+        Date.setText(datas.get(position).getUser().substring(0, idx) + " | " +
                 datas.get(position).getDay().substring(0,4) +"." + datas.get(position).getDay().substring(4,6) + "."+ datas.get(position).getDay().substring(6,8) + " | " +
                 "조회 " + datas.get(position).getCount()
         );

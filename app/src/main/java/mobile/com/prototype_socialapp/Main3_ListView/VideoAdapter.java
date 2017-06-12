@@ -61,7 +61,8 @@ public class VideoAdapter extends BaseAdapter {
 
         Glide.with(convertView.getContext()).load("http://miraclehwan.vps.phps.kr/SS/video/" + datas.get(position).getImageurl()).into(Image);
         Title.setText(datas.get(position).getTitle());
-        Date.setText(datas.get(position).getUser() + " | " +
+        int idx = datas.get(position).getUser().indexOf("@");
+        Date.setText(datas.get(position).getUser().substring(0, idx) + " | " +
                 datas.get(position).getDate().substring(0,4) +"." + datas.get(position).getDate().substring(4,6) + "."+ datas.get(position).getDate().substring(6,8) + " | " +
                 "조회 " + datas.get(position).getCount()
         );

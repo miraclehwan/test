@@ -192,7 +192,7 @@ public class Main1 extends Fragment{
 
         fm = getFragmentManager();
 
-        fm.beginTransaction().replace(R.id.Main1_Fragement, main1_cal1).commit();
+        fm.beginTransaction().replace(R.id.Main1_Fragement, main1_cal2).commit();
 
 //        TextView EditButton = (TextView) layout.findViewById(R.id.Main1_Edit);
 //        EditButton.setOnClickListener(new View.OnClickListener() {
