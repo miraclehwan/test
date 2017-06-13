@@ -24,6 +24,16 @@
             android:text="구장정보"
             android:textColor="#ffffff"
             android:textSize="20sp" />
+
+        <ImageView
+            android:id="@+id/Main1_BackButton"
+            android:layout_width="?attr/actionBarSize"
+            android:layout_height="?attr/actionBarSize"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:layout_weight="1"
+            android:padding="15dp"
+            app:srcCompat="@drawable/back" />
     </RelativeLayout>
 
     <LinearLayout

@@ -101,6 +101,8 @@ public class Main1 extends Fragment{
     Main1_Cal2 main1_cal2;
     Main1_Cal1 main1_cal1;
     public static FragmentManager fm;
+    public static ImageView BackButton;
+
 
     public Main1(){}
 
@@ -180,6 +182,8 @@ public class Main1 extends Fragment{
         WeatherImageList.add(WeatherImage6);
         WeatherImageList.add(WeatherImage7);
 
+BackButton = (ImageView) layout.findViewById(R.id.Main1_BackButton);
+        BackButton.setVisibility(View.INVISIBLE);
 
         java.util.Date date = new java.util.Date();
         SimpleDateFormat day = new SimpleDateFormat("yy"+"."+"MM"+"."+"dd");
@@ -192,7 +196,7 @@ public class Main1 extends Fragment{
 
         fm = getFragmentManager();
 
-        fm.beginTransaction().replace(R.id.Main1_Fragement, main1_cal2).commit();
+        fm.beginTransaction().replace(R.id.Main1_Fragement, main1_cal1).commit();
 
 //        TextView EditButton = (TextView) layout.findViewById(R.id.Main1_Edit);
 //        EditButton.setOnClickListener(new View.OnClickListener() {

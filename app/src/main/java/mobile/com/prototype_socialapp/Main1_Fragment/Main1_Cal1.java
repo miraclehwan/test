@@ -9,6 +9,7 @@ import android.support.v4.app.Fragment;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.LayoutInflater;
+import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
@@ -30,10 +31,13 @@ import java.io.OutputStreamWriter;
 import java.net.HttpURLConnection;
 import java.net.URL;
 import java.net.URLEncoder;
+import java.text.DateFormat;
+import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
+import java.util.HashSet;
 import java.util.List;
 import java.util.Locale;
 
@@ -48,10 +52,13 @@ import mobile.com.prototype_socialapp.R;
 
 public class Main1_Cal1 extends Fragment {
 
+    static String aa;
+    static String bb;
+    static String cc;
     View view;
     Main1_Cal2 main1_cal2;
-    CustomCalendarView calendarView;
-    Calendar currentCalendar;
+    static CalendarView cv;
+    static HashSet<Date> events;
     ArrayList<String> DateList = new ArrayList<>();
     Boolean a = true;
     public static Main1_Cal1 newInstance(){
@@ -68,100 +75,46 @@ public class Main1_Cal1 extends Fragment {
         SimpleDateFormat day = new SimpleDateFormat("yyyyMM");
         Request_Cal2("http://miraclehwan.vps.phps.kr/SS/Request_Calendar.php", String.valueOf(day.format(date)));
 
-//        Toolbar toolbar = (Toolbar) view.findViewById(R.id.toolbar);
-//        setSupportActionBar(toolbar);
-//        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-//        getSupportActionBar().setDisplayShowHomeEnabled(true);
-
-        //Initialize CustomCalendarView from layout
-        calendarView = (CustomCalendarView) view.findViewById(R.id.calendar_view);
 
 
+        events = new HashSet<>();
 
-        //Initialize calendar with date
-        currentCalendar = Calendar.getInstance(Locale.getDefault());
+        cv = ((CalendarView) view.findViewById(R.id.calendar_view));
+        cv.updateCalendar(events);
 
-        //Show monday as first date of week
-        calendarView.setFirstDayOfWeek(Calendar.SUNDAY);
+        // assign event handler
+        cv.setEventHandler(new CalendarView.EventHandler()
+        {
 
-        //Show/hide overflow days of a month
-        calendarView.setShowOverflowDate(false);
-
-        //call refreshCalendar to update calendar the view
-        calendarView.refreshCalendar(currentCalendar);
-
-
-
-        //Handling custom calendar events
-        calendarView.setCalendarListener(new CalendarListener() {
             @Override
-            public void onDateSelected(Date date) {
-                SimpleDateFormat df = new SimpleDateFormat("yyyyMMdd");
-                Main1.fm.beginTransaction().replace(R.id.Main1_Fragement, main1_cal2).commit();
+            public void onDayLongPress(Date date)
+            {
+                // show returned day
+                DateFormat df = SimpleDateFormat.getDateInstance();
+
             }
 
             @Override
-            public void onMonthChanged(Date date) {
-                SimpleDateFormat df = new SimpleDateFormat("yyyyMM");
-                Request_Cal2("http://miraclehwan.vps.phps.kr/SS/Request_Calendar.php", df.format(date));
+            public void onDayPress(Date date) {
+                // show returned day
+                SimpleDateFormat df = new SimpleDateFormat("yyyyMMdd");
+                String a= df.format(date);
+                Log.e("DaehwanLog", a);
+                Main1.fm.beginTransaction().replace(R.id.Main1_Fragement, main1_cal2).commit();
+
+aa = a.substring(0,4);
+bb = a.substring(4,6);
+cc = a.substring(6,8);
+
             }
         });
-
-        //Setting custom font
-//        final Typeface typeface = Typeface.createFromAsset(getAssets(), "fonts/Arch_Rival_Bold.ttf");
-//        if (null != typeface) {
-//            calendarView.setCustomTypeface(typeface);
-//            calendarView.refreshCalendar(currentCalendar);
-//        }
-
-
 
         return view;
     }
 
-//    @Override
-//    public boolean onOptionsItemSelected(MenuItem item) {
-//        // handle arrow click here
-//        if (item.getItemId() == android.R.id.home) {
-//            finish(); // close this activity and return to preview activity (if there is any)
-//        }
-//        return super.onOptionsItemSelected(item);
-//    }
-    private class DisabledColorDecorator implements DayDecorator {
-        @Override
-        public void decorate(DayView dayView) {
-
-
-            int tempyear = dayView.getDate().getYear()+1900;
-            int tempmonth = dayView.getDate().getMonth()+1;
-            int tempday = dayView.getDate().getDate();
-            String S_month = null;
-            String S_day = null;
-
-            if (tempmonth<10){
-                S_month = "0"+String.valueOf(tempmonth);
-            }else{
-                S_month = String.valueOf(tempmonth);
-            }
-            if (tempday<10){
-                S_day = "0"+String.valueOf(tempday);
-            }else{
-                S_day = String.valueOf(tempday);
-            }
-            String viewdate = String.valueOf(tempyear) + S_month + S_day;
-            Log.e("Log", viewdate);
-
-            for (int i=0; i<DateList.size(); i++){
-                if (DateList.get(i).equals(viewdate)){
-                    int color = Color.parseColor("#FF0000");
-                    dayView.setBackgroundResource(R.drawable.selected_date_shape);
-                    ((GradientDrawable)dayView.getBackground()).setColor(Color.RED);
-                }
-            }
-
-        }
+    static void reRenderingCalendar(){
+        cv.updateCalendar(events);
     }
-
 
 
     public void Request_Cal2(final String uri, final String date){
@@ -178,16 +131,31 @@ public class Main1_Cal1 extends Fragment {
                         JSONObject jsonObject = jsonArray.getJSONObject(i);
                         DateList.add(jsonObject.getString("date"));
                     }
+
+                    for (int i=0; i<DateList.size(); i++){
+//                        String year = DateList.get(i).substring(0,4);
+//                        String month = DateList.get(i).substring(4,6);
+//                        String month = DateList.get(i).substring(4,6);
+
+
+                        try {
+                            SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyyMMdd");
+                            Date temp_date = simpleDateFormat.parse(DateList.get(i));
+                            events.add(temp_date);
+                        } catch (ParseException e) {
+                            e.printStackTrace();
+                        }
+
+
+                    }
+                    cv.updateCalendar(events);
                 } catch (JSONException e) {
                     e.printStackTrace();
                 }
-                if (a){
-                    List decorators = new ArrayList<>();
-                    decorators.add(new DisabledColorDecorator());
-                    calendarView.setDecorators(decorators);
-                    calendarView.refreshCalendar(currentCalendar);
-                    a=false;
-                }
+
+
+
+
             }
 
             @Override
@@ -227,20 +195,5 @@ public class Main1_Cal1 extends Fragment {
         getdatajson.execute(uri, date);
 
     }
-
-    private void CheckCa(){
-        Calendar calendar = Calendar.getInstance();
-        calendar.set(2017, 5, 10);
-//        calendar.set(Calendar.YEAR, 2017);
-//        calendar.set(Calendar.MONTH, 5);
-//        calendar.set(Calendar.DAY_OF_MONTH, 10);
-
-        calendar.set(Calendar.HOUR_OF_DAY, 0);
-        calendar.set(Calendar.MINUTE, 0);
-        calendar.set(Calendar.SECOND, 0);
-        calendar.set(Calendar.MILLISECOND, 0);
-    }
-
-
 
 }

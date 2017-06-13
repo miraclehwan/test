@@ -29,6 +29,7 @@ import java.util.Date;
 import java.util.GregorianCalendar;
 
 import mobile.com.prototype_socialapp.Join;
+import mobile.com.prototype_socialapp.MainFragment.Main1;
 import mobile.com.prototype_socialapp.R;
 
 /**
@@ -38,8 +39,8 @@ import mobile.com.prototype_socialapp.R;
 public class Main1_Cal2 extends Fragment {
 
     View view;
-    Calendar cal;
-    TextView Date;
+    static Calendar cal;
+    static TextView Date;
     ArrayList<Integer> title_int_date = new ArrayList<Integer>();
     ArrayList<String> title_string_date = new ArrayList<String>();
     ArrayList<TextView> TextList = new ArrayList<>();
@@ -69,6 +70,8 @@ public class Main1_Cal2 extends Fragment {
     TextView State_1;
     TextView State_2;
 
+    Main1_Cal1 main1_cal1;
+
     public static Main1_Cal2 newInstance(){
         Main1_Cal2 to1 = new Main1_Cal2();
         return to1;
@@ -78,8 +81,17 @@ public class Main1_Cal2 extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         view = inflater.inflate(R.layout.fragment_cal2, container, false);
-
+        main1_cal1 = Main1_Cal1.newInstance();
+        Main1.BackButton.setVisibility(View.VISIBLE);
+        Main1.BackButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Main1.BackButton.setVisibility(View.INVISIBLE);
+                Main1.fm.beginTransaction().replace(R.id.Main1_Fragement, main1_cal1).commit();
+            }
+        });
         cal = new GregorianCalendar();
+        cal.set(Integer.valueOf(Main1_Cal1.aa), Integer.valueOf(Main1_Cal1.bb)-1, Integer.valueOf(Main1_Cal1.cc));
 
 
         ImageView CalBack = (ImageView) view.findViewById(R.id.Cal2_BackButton);
@@ -172,7 +184,12 @@ public class Main1_Cal2 extends Fragment {
 
     }
 
+    static void cal_day(String year, String month, String day){
 
+
+        Date.setText(year + "년 " + String.valueOf(Integer.parseInt(month)+1) + "월 " + day + "일");
+
+    }
 
     public void Request_Cal2(final String uri, final String date){
         class GetDataJSON extends AsyncTask<String, Void, String> {

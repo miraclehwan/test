@@ -1,24 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:calendarNS="http://schemas.android.com/tools"
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
 
-    <com.stacktips.view.CustomCalendarView
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="20dp"
+        android:background="#ffffff"
+        android:orientation="vertical"></LinearLayout>
+
+    <mobile.com.prototype_socialapp.Main1_Fragment.CalendarView
+
         android:id="@+id/calendar_view"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="@color/off_white"
-        app:calendarBackgroundColor="@color/off_white"
-        app:calendarTitleTextColor="@color/black"
-        app:currentDayOfMonthColor="@color/blue"
-        app:dayOfMonthTextColor="@color/black"
-        app:dayOfWeekTextColor="@color/black"
-        app:disabledDayBackgroundColor="@color/off_white"
-        app:disabledDayTextColor="@color/grey"
-        app:selectedDayBackgroundColor="@color/blue"
-        app:titleLayoutBackgroundColor="@color/white"
-        app:weekLayoutBackgroundColor="@color/white"/>
+        android:layout_height="400dp"
+        calendarNS:dateFormat="MMMM yyyy"></mobile.com.prototype_socialapp.Main1_Fragment.CalendarView>
 </LinearLayout>
